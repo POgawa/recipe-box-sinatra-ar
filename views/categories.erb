@@ -1,4 +1,4 @@
-<h1>this is the categories page</h1>
+<h1>Here are the recipes sorted by category </h1>
 
 
 <ul>
@@ -6,7 +6,7 @@
   <% @categories.each do |category| %>
     <li><%= category.cuisine %> </li>
       <ul>  <%category.recipes.each do |recipe|%>
-              <li><a href="/recipe/<%=recipe.id%>"><%= recipe.name %></a></li>
+              <li><a href="/recipe/<%=recipe.id%>"><%= recipe.name %> </a>Rating: <%=recipe.rating%></li>
            <%end%>
     </ul>
    <%end%>

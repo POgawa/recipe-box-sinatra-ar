@@ -6,9 +6,10 @@
     <ul>
 
     <% @top_recipes.each do |r|%>
-      <li> <a href="/recipe/<%= r.id %>"> <%= r.name %></a> </li>
-    </ul>
+      <li><a href="/recipe/<%= r.id %>"> <%= r.name %></a> </li>
+
       <%end%>
+    </ul>
 <%else%>
   <h1>You have no recipes!! <a href="/add_recipe"> Add a new one</a> </h1>
 <%end%>

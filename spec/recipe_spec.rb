@@ -1,15 +1,25 @@
 require 'spec_helper'
 
 describe(Recipe) do
-  it do
-    should have_and_belong_to_many(:categories)
+
+  it('validates name') do
+    recipe = Recipe.new(name: "")
+    expect(recipe.save).to(eq(false))
   end
 
-  it{ should validate_presence_of(:name)}
+  it('validates number is equal to or not more than 5') do
+    recipe = Recipe.new(name: "chicken noodle", rating: 6)
+    expect(recipe.save).to(eq(false))
+  end
+
+  it('validates number is equal to or not more than 5') do
+    recipe = Recipe.new(name: "chicken noodle", rating: 4)
+    expect(recipe.save).to(eq(true))
+  end
 
   describe('#recipe_cap') do
     it('capitalizes recipes') do
-      recipe = Recipe.create(name: "chicken noodle")
+      recipe = Recipe.create(name: "chicken noodle", rating: 3)
       expect(recipe.name).to(eq("Chicken Noodle"))
     end
   end
@@ -23,6 +33,7 @@ describe(Recipe) do
       expect(Recipe.all.top_recipes.length).to(eq(2))
     end
   end
+
 
 
 end

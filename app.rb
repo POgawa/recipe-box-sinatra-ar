@@ -18,15 +18,20 @@ erb :add_recipes
 end
 
 post '/add_recipe' do
-  
+
   name = params.fetch('name')
   instructions = params.fetch('instructions')
   rating = params.fetch('rating')
-  new_recipe = Recipe.create({name: name, instruction: instructions, rating: rating})
-  category_id = params.fetch("category_id")
-  category = Category.find(category_id)
-  new_recipe.categories.push(category)
-  redirect '/categories'
+  new_recipe = Recipe.new({name: name, instruction: instructions, rating: rating})
+
+  if new_recipe.save
+    category_id = params.fetch("category_id")
+    category = Category.find(category_id)
+    new_recipe.categories.push(category)
+    redirect '/categories'
+  else
+    redirect '/'
+  end
 end
 
 get '/categories' do
