@@ -1,1 +1,13 @@
-this is the catergorys page
+<h1>this is the categories page</h1>
+
+
+<ul>
+
+  <% @categories.each do |category| %>
+    <li><%= category.cuisine %> </li>
+      <ul>  <%category.recipes.each do |recipe|%>
+              <li><a href="/recipe/<%=recipe.id%>"><%= recipe.name %></a></li>
+           <%end%>
+    </ul>
+   <%end%>
+</ul>

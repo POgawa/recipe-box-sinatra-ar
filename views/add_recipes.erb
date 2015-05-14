@@ -10,6 +10,20 @@
   <input id= "rating" name = "rating" type= "text">
   <br>
   <br>
+  <p> Enter Type of Cuisine it is:
+  <select id="category_id" name= "category_id">
+    <% @categories.each do |category| %>
+    <option value= '<%=category.id%>'><%= category.cuisine %> </option>
+    <%end%>
+  </select>
+  <button class ="btn btn-danger" type= "submit">Submit</button>
+</form>
 
+
+<h1>Add A Cuisine</h1>
+
+<p> Name the Type of Cuisine </p>
+<form action="/add_cuisine" method="post">
+  <input id= "name" name="name" type= "text">
   <button class ="btn btn-danger" type= "submit">Submit</button>
 </form>
