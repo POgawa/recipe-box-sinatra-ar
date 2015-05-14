@@ -20,7 +20,6 @@ describe(Recipe) do
       recipe = Recipe.create(name: "chicken noodle", rating: 5)
       recipe1 = Recipe.create(name: "chicken", rating: 5)
       recipe2 = Recipe.create(name: " noodle", rating: 3)
-
       expect(Recipe.all.top_recipes.length).to(eq(2))
     end
   end

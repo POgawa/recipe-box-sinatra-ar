@@ -4,12 +4,25 @@
   <head>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel='stylesheet' href='css/styles.css'>
-    <title>Family Tree</title>
+    <title>Recipe Box</title>
   </head>
-  <div class="container">
+
     <body>
-      <%= yield %>
+      <div class="container fill">
+        <%= yield %>
+      </div>
     </body>
-  </div>
+    <footer class="container footer" align="center">
+
+
+
+      <p>
+        <a class="btn btn-info" href="/add_recipe">Add a new Recipe</a>
+
+        <a class="btn btn-info" href="/categories">View recipe by category</a>
+
+        <a class="btn btn-info" href="/ingredients">View recipe by ingredient</a>
+      </p>
+    </footer>
 
   </html>
