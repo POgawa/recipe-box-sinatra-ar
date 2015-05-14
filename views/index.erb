@@ -1,0 +1,27 @@
+<h1>RECIPE BOX!!</h1>
+
+<% if @top_recipes.length != 0 %>
+  <h3>Here are your 5 star rated recipes: </h3>
+
+    <ul>
+
+    <% @top_recipes.each do |r|%>
+      <li> <a href="/recipe/<%= r.id %>"> <%= r.name %></a>  <%= r.rating%> Stars</li>
+    </ul>
+      <%end%>
+<%else%>
+  <h1>You have no recipes!! <a href="/add_recipe"> Add a new one</a> </h1>
+<%end%>
+
+
+
+<p>
+  <a href="/add_recipe">Add a new Recipe</a>
+</p>
+<p>
+  <a href="/categories">View recipe by category</a>
+</p>
+
+<p>
+  <a href="/ingredients">View recipe by ingredient</a>
+</p>
