@@ -42,6 +42,12 @@ end
 
 post "/add_cuisine" do
   cuisine = params.fetch("name")
-  Cuisine.create({cuisine: cuisine})
+  Category.create({cuisine: cuisine})
   redirect '/categories'
+end
+
+
+get('/recipe/:id') do
+  @recipe = Recipe.find(params.fetch('id'))
+  erb(:recipe)
 end
